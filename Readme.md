@@ -26,11 +26,11 @@ by default when a repository is initialized it is on master
 <br>having a dev branch is important because it is a place where you can push
 <br>code that works but needs review and acceptance before dubbed stable for users.
 
-When a developer builds a new feature they should do so on a newly created branch.
+When a developer builds a new feature they should do so on a newly created branch(also known as topic banch).
 <br>then they open a merge/pull request into the dev branch.
 <br>later dev branch will open a merge/pull request to master branch.
 
-After a new branch completed its feature and is merged it should be deleted.
+After a new branch(topic branch) completed its feature and is merged it should be deleted.
 <br>dev branch and Master branch should not be deleted. 
 <br>dev branch is for not building additional features therefore does not need cleaning up..
 <br>think of dev branch as a code placeholder that new branches merge onto.
