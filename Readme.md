@@ -19,6 +19,27 @@ notice this command will not work until the branch is created.
 <br>`git log --patch;` - will show the log along with all the changes each commit contributed.
 <pre>       hit spacebar to quickly move through --patch  output.</pre>
 
+### lets talk about remote:
+local are the branches on your computer. 
+remote means off your computer on the internet.
+
+when you clone down a project the project automatically remembers the url and assigns it a nickname remote "origin"
+
+if you initialize a project you must add the remote yourself:
+<br>`git remote add cheese https://github.com/MichaelDimmitt/introduce_users_to_cool_git.git`
+
+you can check what remotes you have for your project by the command:
+<br>`git remote -v`
+
+you can give a remote any nickname you want. In this case we made it cheese.
+<br>we use remote to push the code. they default to origin or the only remote availiable.
+<br>this is why `git push` works.
+<br>however the actual command when you type git push and are on master branch is... 
+`git push origin master;`
+
+sometimes when you push you will see it prompting you --upstream. 
+<br>this means that the remote does not currently have that branch and you are adding it.
+
 #### notes on branches:
 by default when a repository is initialized it is on master
 <br>People who want the stable version of your project 
@@ -52,4 +73,22 @@ git checkout dev; git rebase -;
 git checkout dev; git merge -;
 ```
 
+# Intermediate git section:
+`git log;`
+### Squasing made simple:
+I put the `git log` above because I used to use it to figure out how far back to rebase so that my squashing would work and not break anything by going too far back. 
 
+However, it just became easier. you can squash simply by ... 
+<br>`git checkout dev;git rebase -i master;`
+<br>dev should always be ahead of master and master should always be the base.
+<br>the command looks specifically at the changes dev has on top of master and gives you the oppertunity to squash and perform any other operations and nothing there will never adversely affect the master branch. welcome to the future. If you have any questions about this shoot me an email or message me on slack or twitter. 
+<br> unless everyone already knew this stuff and im late to the party. 😘 . 
+https://stackoverflow.com/questions/49968345/git-rebase-i-from-top-of-another-branch-squashing-made-simple/49968346#49968346
+
+### Cherrypicking
+http://stackoverflow.com/questions/9339429/what-does-cherry-picking-a-commit-with-git-mean
+1) Make sure you are on the branch you want apply the commit to.
+ ```git checkout master```
+2) Use `git log;` to find the commit hash you are looking for.  
+3) Execute the following:
+ ```git cherry-pick <commit-hash>```
